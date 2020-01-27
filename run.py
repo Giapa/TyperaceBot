@@ -10,21 +10,26 @@ from random import uniform
 def start(driver, link='https://play.typeracer.com/'):
 
     print('----Joining random game')
-    
+
     try:
-        if link is 'https://play.typeracer.com/':
+        if link == 'https://play.typeracer.com/':
+        
             driver.get(link)
 
             sleep(2)
-
+            
             accept_button = driver.find_element_by_xpath('/html/body/div[1]/div/div/div[2]/button[2]')
 
             accept_button.click()
 
-            sleep(3)
+            while True:
+                if 'Enter a typing race' in driver.page_source:
+                    break
 
             element = driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL, Keys.ALT, 'I')
+
         else:
+
             driver.get(link)
 
             sleep(2)
