@@ -105,7 +105,6 @@ def start(driver, link='https://play.typeracer.com/'):
             new_text = text[20:]
             sleeping_time = 0.1088
             print(f'---- Huge text. Step:{step}')
-
         start = 0
         for i in range(4):
             inp = text[start:end]
